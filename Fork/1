@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <stdlib.h>
+
+void fork1()
+{
+	int x = 1;
+	pid_t p = fork();
+	if(fork()<0)
+	{
+		perror("fork fail");
+		exit(1);
+	}
+	else if (p==0)
+	{
+		printf("child has x = %d\n", ++x);
+	}
+	else
+	{
+		printf("padre has x = %d\n",--x);
+	}
+}
+
+void forkthreesons()
+{
+	for(int i =0; i<3; i++)
+	{
+		h = fork();
+		if(h==0)
+		{
+			if(i==1||i==2)
+			{
+				h = fork();
+				break;
+			}
+		}
+	}
+		
+	
+}
+
+int main()
+{
+	forkthreesons();
+	return 0;
+}
+
