@@ -72,8 +72,7 @@ void forkShowSons()
 
 }
 
-int main()
-{
+int main()	{
 	forkShowSons();
 	return 0;
 }
