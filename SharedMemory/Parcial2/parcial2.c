@@ -5,11 +5,11 @@
 #include <sys/wait.h>
 
 /*
-SERGIO ALMAZO CATAÑO
-ANDRÉS IBARRA PAEZ
-MANUEL SIERRA POSSO
 
-matriz utilizada en archivo matriz.txt
+
+contenido de la matriz utilizada en archivo matriz.txt
+crear el archivo "matriz.txt"
+
 4
 4
 85 72 65 45 
@@ -25,8 +25,13 @@ matriz utilizada en archivo matriz.txt
 0 -1 -1 -1 
 -1 -1 -1 -1
 
+COMPILACION
 
+gcc Parcial2.c -o parcial2
 ./parcial2
+
+
+IMPRESION
 4 4
 Matriz N
 	85.0	72.0	65.0	45.0
