@@ -1,0 +1,78 @@
+
+dado un estado un estado inicial con una matriz.
+cada celda puede estar en uno de tres estados
+"bosque" "deforestado" "regenerado"
+
+para cada celda bosque o deforestado, los cambios
+ocurren en el tiempo de acuerdo a sus vecinos
+para modelar estos cambios en un ecosistema
+se siguen estas reglas que determinan
+como las celdas cambian de estado en el 
+tiempo(cada año) reflejando procesos de deforestacion
+y regeneracion en el tiempo.
+
+regla 1
+una celda en estado "bosque" se convierte
+en "deforestado" si:
+#(vecinosDeforestados)>= 4 <- "deforestado"
+
+regla 2
+una celda en estado "deforestado" se convierte
+en "regenerado" si: 
+#(vecinosbosqueregenerado)>= 5 <- "regenerado"
+
+lo que representa 
+0: deforestado
+1: bosque
+2: regenerado
+
+*las celdas por fuera de los limites de la matriz s
+consideran bosques
+
+archivo.txt
+
+10 años
+5 fil
+5 col
+11101
+01011
+10121
+11010
+21111
+
+Un hilo principal y 2 hilos secundarios
+cada hilo secundario se encarga de estimar 
+los cambios de bosque a deforestado y
+de deforestado hacia recuperado,
+respectivamente cada año sobre una unica matriz
+compartida.
+
+El hilo principal debe mostrar el estado
+del terreno despues de transcurrido los años
+
+
+
+--usar mutex, proteger variables globales
+--evitar concurrencia
+--los hilos deben ser los mismos durante la 
+ejecucion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
