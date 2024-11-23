@@ -4,12 +4,20 @@
 #include <sys/wait.h>
 #include <sys/shm.h>
 
+/*
+INTEGRANTES DEL TALLER, GRUPO 4
+SERGIO ALMAZO 2019114064
+MANUEL SIERRA	2020214067
+ANDRËS IBARRA	2016114069
+
+*/
+
+
 typedef struct{
 	int x;
 	int  y;
-	int cont;
-	DatosShm *ptr;
-	ptr->sgte = NULL;
+
+
 }DatosShm;
 
 unsigned int sizeof_dm(int filas, int colum, size_t sizeElement){
@@ -82,63 +90,68 @@ int main(void){
 			switch(i){
 			
 				case 0: //hijo 1
+					int k1=0;
 					for(int i=0; i<fil/2;i++){
 						for(int j=0; j<col/2; j++){
-							for(ptr; ; k++){
 								if(matriz[i][j]==1){
-									pr1[k].x = i;
-									pr1[k].y = j;
-									pr1[k].cont=+1;
-								}	
-							}
-							
-							
-						}
+									pr1[k1].x = i;
+									pr1[k1].y = j;
+									k1++;
+
+									}
+						}		
 					}
+				
+				
 				
 					
 				
 					exit(1);
 				case 1: //hijo 2
+				int k2=0;
 				for(int i=fil/2; i<fil;i++){
 						for(int j=0; j<col/2; j++){
-							for(int k=0; k<sizeof(pr2); k++){
+
 								if(matriz[i][j]==1){
-									pr2[k].x = i;
-									pr2[k].y = j;
-									pr2[k].cont=+1;
+									pr2[k2].x = i;
+									pr2[k2].y = j;
+									k2++;
+
 								}	
-							}
+							
 							
 						}
 					}
 					
 					exit(1);
+					
 				case 2: //hijo 3
+					int k3=0;
 					for(int i=0; i<fil/2;i++){
 						for(int j=col/2; j<col; j++){
-							for(int k=0; k<sizeof(pr3); k++){
+
 								if(matriz[i][j]==1){
-									pr3[k].x = i;
-									pr3[k].y = j;
-									pr3[k].cont=+1;
+									pr3[k3].x = i;
+									pr3[k3].y = j;
+									k3++;
 								}	
-							}
+							
 							
 						}
 					}
 					
 					exit(1);
 				case 3: //hijo 4
+					int k4=0;
 					for(int i=fil/2; i<fil;i++){
 						for(int j=col/2; j<col; j++){
-							for(int k=0; k<sizeof(pr4); k++){
+
 								if(matriz[i][j]==1){
-									pr4[k].x = i;
-									pr4[k].y = j;
-									pr4[k].cont=+1;
+									pr4[k4].x = i;
+									pr4[k4].y = j;
+									k4++;
 								}	
-							}
+							
 							
 						}
 					}
@@ -155,25 +168,34 @@ int main(void){
 	for(int i=0; i<4; i++){wait(NULL);}
 	
 	printf("Hijo 1\n");
-	for(int i=0; i<pr1[i].cont; i++){
-		printf("Filas %d columnas %d\n", pr1[i].x, pr1[i].y);
+	for(int i=0; i<(fil*col)/4; i++){
+		if(pr1[i].x != 0 || pr1[i].y != 0){
+			printf("Filas %d columnas %d\n", pr1[i].x, pr1[i].y);
+			}
+		
 	}
 	 
 	printf("Hijo 2\n");
-		for(int i=0; i<pr2[i].cont; i++){
-			printf("Filas %d columnas %d\n", pr2[i].x, pr2[i].y);
+		for(int i=0; i<(fil*col)/4; i++){
+			if(pr2[i].x != 0 || pr2[i].y != 0){
+				printf("Filas %d columnas %d\n", pr2[i].x, pr2[i].y);
+				}
 	}
 	
 		
 	
 	
 	printf("Hijo 3\n");
-	for(int i=0; i<pr3->cont; i++){
-		printf("Filas %d columnas %d\n", pr3[i].x, pr3[i].y);
+	for(int i=0; i<(fil*col)/4; i++){
+		if(pr1[i].x != 0 || pr1[i].y != 0){
+			printf("Filas %d columnas %d\n", pr3[i].x, pr3[i].y);
+			}
 	}
 	printf("Hijo 4\n");
-	for(int i=0; i<pr4->cont; i++){
-		printf("Filas %d columnas %d\n", pr4[i].x, pr4[i].y);
+	for(int i=0; i<(fil*col)/4; i++){
+		if(pr1[i].x != 0 || pr1[i].y != 0){
+			printf("Filas %d columnas %d\n", pr4[i].x, pr4[i].y);
+			}
 	}	
 		
 }
