@@ -3,13 +3,9 @@
 #include <unistd.h>
 #include <sys/shm.h>
 #include <sys/wait.h>
-
 /*
-
-
 contenido de la matriz utilizada en archivo matriz.txt
 crear el archivo "matriz.txt"
-
 4
 4
 85 72 65 45 
@@ -24,59 +20,48 @@ crear el archivo "matriz.txt"
 1 0 -1 -1
 0 -1 -1 -1 
 -1 -1 -1 -1
-
-COMPILACION
-
+----COMPILACION------
 gcc Parcial2.c -o parcial2
 ./parcial2
-
-
-IMPRESION
+------IMPRESION------
 4 4
-Matriz N
+-----Matriz N----
 	85.0	72.0	65.0	45.0
 	55.0	48.0	35.0	25.0
 	42.0	38.0	28.0	20.0
 	35.0	30.0	22.0	15.0
-
-Matriz C
+-----Matriz C-----
 	2.0	2.0	1.0	1.0
 	2.0	1.0	1.0	0.0
 	1.0	1.0	0.0	0.0
 	1.0	0.0	0.0	0.0
-
-Matriz P
+-----Matriz P-----
 	1.0	1.0	0.0	-1.0
 	1.0	0.0	-1.0	-1.0
 	0.0	-1.0	-1.0	-1.0
 	-1.0	-1.0	-1.0	-1.0
-MatrizR
+----MatrizR----
 	0.0	0.0	0.3	1.1
 	0.0	0.5	1.3	3.0
 	0.6	1.2	2.9	3.2
 	1.3	2.8	3.1	3.4
-MatrizS
+----MatrizS----
 	15.3 13.0 5.2 1.8
 	9.9	3.8	1.4	0.5
 	3.4	1.5	0.6	0.4
 	1.4	0.6	0.4	0.3
-Matriz A
+----Matriz A----
 	0.0	0.0	0.0	0.0
 	0.0	0.0	0.0	0.0
 	0.0	0.0	0.0	0.0
 	0.0	0.0	0.0	1.0
-
 */
-
-
-
 unsigned int sizeof_dm(int filas, int colum, size_t sizeElement){
         size_t size;
         size = filas * sizeof(void*); //indexSize
         size += (colum * filas * sizeElement); //data size
         return size;
 }
-
 void create_index(void **m, int filas, int colum, size_t sizeElement){
         size_t sizeFilas = colum * sizeElement;
         m[0] = m + filas;
@@ -84,7 +69,6 @@ void create_index(void **m, int filas, int colum, size_t sizeElement){
                 m[i] = (m[i-1]+sizeFilas);
         }
 }
-
 int main(int argc, char *argv){
     double **matrizN, **matrizC, **matrizP;
     double **matrizR, **matrizS, **matrizA;
@@ -162,7 +146,6 @@ int main(int argc, char *argv){
         }
         printf("\n");
     }
-
     fclose(ar);//cierro archivo
 
     for(int i=0; i<2; i++){
